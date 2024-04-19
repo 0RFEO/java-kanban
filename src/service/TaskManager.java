@@ -14,7 +14,6 @@ public class TaskManager {
     private HashMap<Integer, Task> tasks = new HashMap<>();
     private HashMap<Integer, Subtask> subtasks = new HashMap<>();
     private HashMap<Integer, Epic> epics = new HashMap<>();
-    private List<Task> history = new ArrayList<>();
 
 
     public void createNewTask(Task newTask) {
@@ -82,29 +81,17 @@ public class TaskManager {
         return new ArrayList<>(subtasks.values());
     }
 
-    public void add(Task task) {
-        if (history.size() < 10) {
-            history.add(task);
-        }
-        else {
-            history.remove(0);
-            history.add(task);
-        }
-    }
     public Task getTaskById(int id) {
-        add(tasks.get(id));
         return tasks.get(id);
     }
 
 
     public Epic getEpicById(int id) {
-        add(epics.get(id));
         return epics.get(id);
     }
 
 
     public Subtask getSubtaskById(int id) {
-        add(subtasks.get(id));
         return subtasks.get(id);
     }
 
@@ -180,9 +167,7 @@ public class TaskManager {
     }
 
 
-    public List<Task> getHistory() {
-        return history;
-    }
+
 
 
 }
