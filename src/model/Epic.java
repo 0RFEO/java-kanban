@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Epic extends Task {
-
     private ArrayList<Integer> subtaskIds = new ArrayList<>();
 
     public Epic(String title, String description) {
@@ -20,8 +19,6 @@ public class Epic extends Task {
         return subtaskIds;
     }
 
-
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -29,7 +26,7 @@ public class Epic extends Task {
         Epic otherEpic = (Epic) obj;
         return Objects.equals(title, otherEpic.title) &&
                 Objects.equals(description, otherEpic.description) &&
-                (id == otherEpic.id) &&
+                id == otherEpic.id &&
                 Objects.equals(status, otherEpic.status) &&
                 Objects.equals(subtaskIds, otherEpic.subtaskIds);
     }
